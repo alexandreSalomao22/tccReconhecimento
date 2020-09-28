@@ -1,87 +1,70 @@
 import React, {Component} from 'react'
 import {View, StyleSheet, Text, TouchableOpacity, Image} from 'react-native'
-import commonStyles from '../commonStyles'
-import Logo from '../../assets/banner.png'
 import Input from '../components/Input'
-import Auth from '../models/Auth'
-
+import UnipLogo from '../../assets/unip.png'
+import commonStyles from '../commonStyles'
 
 export default class Login extends Component{
 
-    state = {
-        email: Auth.email,
-        password: Auth.password
-    }
-
     login = () =>{
-        console.log(this.state.email)
-        console.log(this.state.password)
         this.props.navigation.navigate('Home');
     }
 
+
     render(){
         return(
-            <View style={styles.container}>
-               <View style={styles.containerLogo}>
-                    <Image style={styles.logo} source={Logo} />
+            <View style={styles.main}>
+                <View style={styles.cabecalho}>
+
                 </View>
-                <View style={styles.containerForm}>
-                    <View style={styles.form}>
-                        <Input placeholder="Digite seu E-mail" value={this.state.email} onChangeText={email => this.setState({email: email})} />
-                        <Input secureTextEntry={true} placeholder="Digite sua Senha" value={this.state.password} onChangeText={password => this.setState({password: password})} />
-                        <TouchableOpacity onPress={this.login} style={styles.touchableButton}> 
-                            <View style={styles.button}>
-                                <Text style={styles.buttonText}>Entrar</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity>
-                                <Text style={styles.forgotPassword}>Esqueci minha senha</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Register')}>
-                                <Text style={styles.textSignup}>Não possui conta? Cadastre-se!</Text>
-                        </TouchableOpacity>
-                    </View>
+                <View style={styles.infoLogin}>
+                    <Image source={UnipLogo} />
+                    <Input placeholder="Digite seu e-mail" value="123" />
+                    <Input placeholder="Digite sua senha" type="password" value="123" />
+                    <TouchableOpacity onPress={this.login} style={styles.touchableButton}> 
+                        <View style={styles.button}>
+                            <Text style={styles.buttonText}>Entrar</Text>
+                        </View>
+                    </TouchableOpacity>
                 </View>
-                <View style={styles.containerSignup}>
-                        
+                <View style={styles.rodape}>
+                    
                 </View>
             </View>
+            
         )
     }
 
 }
 
 const styles = StyleSheet.create({
-    container:{
+
+    main:{
+        width: '100%',
         flex: 1,
-        backgroundColor: commonStyles.colors.background
+        justifyContent: "space-around",
+        alignItems: "center",
+        flexDirection: "column"
     },
-    containerLogo:{
-        justifyContent: 'center',
+    infoLogin:{
+        flexDirection: 'column',
+        flex: 3,
+        width: '100%',
+        justifyContent: 'space-around',
         alignItems: 'center'
+
     },
-    logo:{
-        height: 260,
-        width: 260,
-        resizeMode: 'contain',
-        marginTop: Platform.OS === 'ios' ? 50 : 0
-    },
-    containerForm:{
-        flex: 5,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    form:{
-        backgroundColor: commonStyles.colors.background,
-        width: '88%',
-        height: '88%',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    containerSignup:{
+    rodape:{
+        flexDirection: 'column',
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
+        width: '100%',
+        backgroundColor: 'blue'
+    },
+    cabecalho:{
+        flexDirection: 'column',
+        flex: 1,
+        width: '100%',
+        backgroundColor: 'red'
     },
     touchableButton:{
         width: '100%',
@@ -108,17 +91,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 27,
         color: commonStyles.colors.primary
-    },
-    forgotPassword:{
-        marginTop: 30,
-        fontFamily: commonStyles.fontFamily,
-        color: commonStyles.colors.primary,
-        fontSize: 20
-    },
-    textSignup:{
-        marginTop: 30,
-        fontFamily: commonStyles.fontFamily,
-        color: commonStyles.colors.secondary,
-        fontSize: 21
     }
+
 })

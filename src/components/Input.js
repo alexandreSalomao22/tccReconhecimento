@@ -10,7 +10,7 @@ export default props =>{
 
 const styles = StyleSheet.create({
     input:{
-        width: '95%',
+        width: '90%',
         backgroundColor: '#fff',
         height: 50,
         marginBottom: 20,

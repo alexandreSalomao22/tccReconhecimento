@@ -7,32 +7,17 @@ import { createStackNavigator } from "react-navigation-stack"
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
 //IMPORTS TELAS
-import Home from './src/screens/Home'
-import Autenticar from './src/screens/Autenticar'
-import NovoAcesso from './src/screens/NovoAcesso'
-import ConsultarAcesso from './src/screens/ConsultarAcesso'
-import NovoUsuario from './src/screens/NovoUsuario'
-import ConsultarUsuario from './src/screens/ConsultarUsuario'
-import Sair from './src/screens/Sair'
-import Login from './src/screens/Login'
-
-function Item({ item, navigate }) {
-  return (
-    <TouchableOpacity style={styles.listItem} onPress={()=>navigate(item.name)}>
-      <MaterialCommunityIcons name={item.icon} size={32} />
-      <Text style={styles.title}>{item.text}</Text>
-    </TouchableOpacity>
-  );
-}
+import Home from './screens/Home'
+import Autenticar from './screens/Autenticar'
+import NovoAcesso from './screens/NovoAcesso'
+import ConsultarAcesso from './screens/ConsultarAcesso'
+import NovoUsuario from './screens/NovoUsuario'
+import ConsultarUsuario from './screens/ConsultarUsuario'
+import Sair from './screens/Sair'
 
 class Sidebar extends React.Component {
   state = {
       routes:[
-          {
-            name:"Login",
-            icon:"home",
-            text:"Login"
-          },
           {
               name:"Home",
               icon:"home",
@@ -70,6 +55,7 @@ class Sidebar extends React.Component {
           },
       ]
   }
+
   
   render(){
       return (
@@ -91,7 +77,6 @@ class Sidebar extends React.Component {
 
 const Drawer = createDrawerNavigator(
   {
-    Login:{ screen: Login},
     Home:{ screen: Home},
     Autenticar:{ screen: Autenticar},
     NovoAcesso:{ screen: NovoAcesso},
@@ -102,7 +87,7 @@ const Drawer = createDrawerNavigator(
 
   },
   {
-    initialRouteName: "Login",
+    initialRouteName: "Home",
     unmountInactiveRoutes: true,
     headerMode: "none",
     contentComponent: props => <Sidebar {...props} />
