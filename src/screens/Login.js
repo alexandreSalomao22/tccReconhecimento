@@ -19,7 +19,7 @@ export default class Login extends Component{
                 </View>
                 <View style={styles.infoLogin}>
                     <Image source={UnipLogo} />
-                    <Input placeholder="Digite seu e-mail" value="123" />
+                    <Input placeholder="Digite seu usuário" value="123" />
                     <Input placeholder="Digite sua senha" type="password" value="123" />
                     <TouchableOpacity onPress={this.login} style={styles.touchableButton}> 
                         <View style={styles.button}>
@@ -28,7 +28,7 @@ export default class Login extends Component{
                     </TouchableOpacity>
                 </View>
                 <View style={styles.rodape}>
-                    
+                         <Text>Esqueceu sua senha?</Text>
                 </View>
             </View>
             
@@ -58,7 +58,8 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         flex: 1,
         width: '100%',
-        backgroundColor: 'blue'
+        backgroundColor: 'blue',
+        textAlign: 'right'
     },
     cabecalho:{
         flexDirection: 'column',
@@ -92,5 +93,6 @@ const styles = StyleSheet.create({
         fontSize: 27,
         color: commonStyles.colors.primary
     }
+
 
 })
