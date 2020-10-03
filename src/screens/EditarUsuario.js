@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
-import {View, StyleSheet, Text, TouchableOpacity, Image} from 'react-native'
-import {Picker} from '@react-native-community/picker'
+import {View, StyleSheet, Text, TouchableOpacity, Image, Picker} from 'react-native'
 import Input from '../components/Input'
 import Dropdown from '../components/pickerBtn'
 import unipSuperior from '../../assets/unipSuperior.png'
@@ -8,7 +7,7 @@ import commonStyles from '../commonStyles'
 import {cpfMask} from '../components/mask'
 import { Entypo } from '@expo/vector-icons'; 
 
-export default class NovoUsuario extends Component{
+export default class EditarUsuario extends Component{
 
     login = () =>{
     {/* this.props.navigation.navigate('Home'); //navegação do botão */}
@@ -31,8 +30,9 @@ export default class NovoUsuario extends Component{
                     <Input placeholder="Digite a Funcional" />
                     <Input placeholder="Digite o CPF" />
                     <Input placeholder="Digite o Usuário" />
-                    <Input placeholder="Digite a Senha" />
-                    <Input placeholder="Repetir a Senha" />
+                    <Input placeholder="Digite a Senha Atual" />
+                    <Input placeholder="Digite a Nova Senha" />
+                    <Input placeholder="Repita a Senha Nova" />
                     <Picker
                         style={styles.pickerComponente}
                         selectedValue={this.state.nivelAcesso}
@@ -50,8 +50,18 @@ export default class NovoUsuario extends Component{
                     </Picker>
                     <TouchableOpacity onPress={this.login} style={styles.touchableButton}> 
                         <View style={styles.button}>
-                        <Entypo name="camera" size={24} color="black" />
-                            <Text style={styles.buttonText}>Capturar Imagens</Text>
+                        <Entypo name="block" size={24} color="black" />
+                            <Text style={styles.buttonText}>Bloquear Usuário</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={this.login} style={styles.touchableButton}> 
+                        <View style={styles.button}>
+                            <Text style={styles.buttonText}>Cancelar</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={this.login} style={styles.touchableButton}> 
+                        <View style={styles.button}>
+                            <Text style={styles.buttonText}>Salvar</Text>
                         </View>
                     </TouchableOpacity>
                 </View>

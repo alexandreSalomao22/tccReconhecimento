@@ -1,57 +1,40 @@
 import React, {Component} from 'react'
-import {View, StyleSheet, Text, TouchableOpacity, Image} from 'react-native'
-import {Picker} from '@react-native-community/picker'
+import {View, StyleSheet, Text, TouchableOpacity, Image, Picker} from 'react-native'
 import Input from '../components/Input'
-import Dropdown from '../components/pickerBtn'
 import unipSuperior from '../../assets/unipSuperior.png'
 import commonStyles from '../commonStyles'
 import {cpfMask} from '../components/mask'
 import { Entypo } from '@expo/vector-icons'; 
 
-export default class NovoUsuario extends Component{
+export default class EditarAcesso extends Component{
 
     login = () =>{
     {/* this.props.navigation.navigate('Home'); //navegação do botão */}
-    }
-
-    state = {
-        nivelAcesso: ''
     }
 
     render(){
         return(
             <View style={styles.main}>
                 <View style={styles.cabecalho}>
-                        <Text style={styles.textoLogo}>Cadastrar Usuário</Text>
+                        <Text style={styles.textoLogo}>Cadastrar Acesso</Text>
                          <Image style={styles.logoSuperior} source={unipSuperior} />
                 </View>
                 <View style={styles.infoLogin}>
                     
                     <Input placeholder="Digite o Nome Completo" />
-                    <Input placeholder="Digite a Funcional" />
+                    <Input placeholder="RA / Funcional" />
                     <Input placeholder="Digite o CPF" />
-                    <Input placeholder="Digite o Usuário" />
-                    <Input placeholder="Digite a Senha" />
-                    <Input placeholder="Repetir a Senha" />
-                    <Picker
-                        style={styles.pickerComponente}
-                        selectedValue={this.state.nivelAcesso}
-                        onValueChange={
-                                (itemValor, itemIndex) =>
-                                    this.setState({
-                                        nivelAcesso: itemValor
-                                    })
-                        }
-                    >
-                            <Picker.item label="Escolha o Nivel de Acesso: " value="Selecionar" />
-                            <Picker.item label="Administrador" value="Administrador" />
-                            <Picker.item label="Atendente" value="Atendente" />
-
-                    </Picker>
+                  
                     <TouchableOpacity onPress={this.login} style={styles.touchableButton}> 
                         <View style={styles.button}>
                         <Entypo name="camera" size={24} color="black" />
                             <Text style={styles.buttonText}>Capturar Imagens</Text>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={this.login} style={styles.touchableButton}> 
+                        <View style={styles.button}>
+                        <Entypo name="block" size={24} color="black" />
+                            <Text style={styles.buttonText}>Bloquear Acesso</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
@@ -72,22 +55,6 @@ export default class NovoUsuario extends Component{
 
 const styles = StyleSheet.create({
 
-    pickerComponente:{
-        width: '90%',
-        backgroundColor: '#fff',
-        height: 50,
-        marginBottom: 20,
-        borderRadius: 5,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 1,
-        },
-        shadowOpacity: 0.22,
-        shadowRadius: 2.22,
-
-        elevation: 5,
-    },
     logoSuperior:{
         marginLeft: 250,
         marginTop: -40

@@ -32,7 +32,7 @@ export default class ConsultarAcesso extends Component{
 
     render(){
         return(
-            <View style={style.container}>
+            <View style={styles.container}>
                 <FlatList
                         data={this.state.data}
                         renderItem={({item}) => (
