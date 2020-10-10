@@ -15,6 +15,7 @@ import NovoUsuario from './src/screens/NovoUsuario'
 import ConsultarUsuario from './src/screens/ConsultarUsuario'
 import Sair from './src/screens/Sair'
 import Login from './src/screens/Login'
+import GetCamera from './src/screens/GetCamera'
 
 function Item({ item, navigate }) {
   return (
@@ -28,12 +29,12 @@ function Item({ item, navigate }) {
 class Sidebar extends React.Component {
   state = {
       routes:[
-          {
-            name:"Login",
-            icon:"home",
-            text:"Login"
-          },
-          {
+        {
+          name:"GetCamera",
+          icon: "camera",
+          text:"GetCamera"
+        },
+        {
               name:"Home",
               icon:"home",
               text:"Home"
@@ -75,8 +76,8 @@ class Sidebar extends React.Component {
       return (
           <View style={styles.container}>
               <Image source={require("./assets/profile.jpg")} style={styles.profileImg}/>
-              <Text style={{fontWeight:"bold",fontSize:16,marginTop:10}}>Janna Doe</Text>
-              <Text style={{color:"gray",marginBottom:10}}>janna@doe.com</Text>
+              <Text style={{fontWeight:"bold",fontSize:16,marginTop:10}}>Reconhecimento Facial</Text>
+              <Text style={{color:"gray",marginBottom:10}}>reconhecimento@unip.com.br</Text>
               <View style={styles.sidebarDivider}></View>
               <FlatList
                   style={{width:"100%",marginLeft:30}}
@@ -91,6 +92,7 @@ class Sidebar extends React.Component {
 
 const Drawer = createDrawerNavigator(
   {
+    GetCamera: {screen: GetCamera},
     Login:{ screen: Login},
     Home:{ screen: Home},
     Autenticar:{ screen: Autenticar},

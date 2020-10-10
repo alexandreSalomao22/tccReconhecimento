@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-import {View, StyleSheet, Text, TouchableOpacity, Image, Picker} from 'react-native'
+import {View, StyleSheet, Text, TouchableOpacity, Image} from 'react-native'
+import {Picker} from '@react-native-community/picker'
 import Input from '../components/Input'
 import unipSuperior from '../../assets/unipSuperior.png'
 import commonStyles from '../commonStyles'

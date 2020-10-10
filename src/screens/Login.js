@@ -3,6 +3,7 @@ import {View, StyleSheet, Text, TouchableOpacity, Image} from 'react-native'
 import Input from '../components/Input'
 import UnipLogo from '../../assets/unip.png'
 import commonStyles from '../commonStyles'
+import unipSuperior from '../../assets/unipSuperior.png'
 
 export default class Login extends Component{
 
@@ -19,8 +20,8 @@ export default class Login extends Component{
                 </View>
                 <View style={styles.infoLogin}>
                     <Image source={UnipLogo} />
-                    <Input placeholder="Digite seu usuário" value="123" />
-                    <Input placeholder="Digite sua senha" type="password" value="123" />
+                    <Input placeholder="Digite seu usuário" />
+                    <Input placeholder="Digite sua senha" type="password" />
                     <TouchableOpacity onPress={this.login} style={styles.touchableButton}> 
                         <View style={styles.button}>
                             <Text style={styles.buttonText}>Entrar</Text>
@@ -58,14 +59,13 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         flex: 1,
         width: '100%',
-        backgroundColor: 'blue',
-        textAlign: 'right'
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     cabecalho:{
         flexDirection: 'column',
         flex: 1,
         width: '100%',
-        backgroundColor: 'red'
     },
     touchableButton:{
         width: '100%',

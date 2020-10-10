@@ -61,8 +61,8 @@ class Sidebar extends React.Component {
       return (
           <View style={styles.container}>
               <Image source={require("./assets/profile.jpg")} style={styles.profileImg}/>
-              <Text style={{fontWeight:"bold",fontSize:16,marginTop:10}}>Janna Doe</Text>
-              <Text style={{color:"gray",marginBottom:10}}>janna@doe.com</Text>
+              <Text style={{fontWeight:"bold",fontSize:16,marginTop:10}}>Reconhecimento Facial</Text>
+              <Text style={{color:"gray",marginBottom:10}}>reconhecimento@unip.com.br</Text>
               <View style={styles.sidebarDivider}></View>
               <FlatList
                   style={{width:"100%",marginLeft:30}}

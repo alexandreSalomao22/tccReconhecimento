@@ -7,6 +7,7 @@ import unipSuperior from '../../assets/unipSuperior.png'
 import commonStyles from '../commonStyles'
 import {cpfMask} from '../components/mask'
 import { Entypo } from '@expo/vector-icons'; 
+import CameraCadastro from '../components/CameraCadastro'
 
 export default class NovoUsuario extends Component{
 
@@ -33,8 +34,11 @@ export default class NovoUsuario extends Component{
                     <Input placeholder="Digite o Usuário" />
                     <Input placeholder="Digite a Senha" />
                     <Input placeholder="Repetir a Senha" />
-                    <Picker
+                    <View 
                         style={styles.pickerComponente}
+                    >
+                        <Picker
+                        style={{color:'#A9A9A9'}}
                         selectedValue={this.state.nivelAcesso}
                         onValueChange={
                                 (itemValor, itemIndex) =>
@@ -48,10 +52,13 @@ export default class NovoUsuario extends Component{
                             <Picker.item label="Atendente" value="Atendente" />
 
                     </Picker>
-                    <TouchableOpacity onPress={this.login} style={styles.touchableButton}> 
+                    </View>
+                    
+                    <TouchableOpacity onPress={ this.login } style={styles.touchableButton}> 
                         <View style={styles.button}>
                         <Entypo name="camera" size={24} color="black" />
                             <Text style={styles.buttonText}>Capturar Imagens</Text>
+                           
                         </View>
                     </TouchableOpacity>
                 </View>
@@ -116,7 +123,6 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         flex: 1,
         width: '100%',
-        backgroundColor: 'blue',
         textAlign: 'right'
     },
     cabecalho:{

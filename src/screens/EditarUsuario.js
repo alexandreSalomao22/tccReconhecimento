@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-import {View, StyleSheet, Text, TouchableOpacity, Image, Picker} from 'react-native'
+import {View, StyleSheet, Text, TouchableOpacity, Image} from 'react-native'
+import {Picker} from '@react-native-community/picker'
 import Input from '../components/Input'
 import Dropdown from '../components/pickerBtn'
 import unipSuperior from '../../assets/unipSuperior.png'
@@ -43,7 +44,7 @@ export default class EditarUsuario extends Component{
                                     })
                         }
                     >
-                            <Picker.item label="Escolha o Nivel de Acesso: " value="Selecionar" />
+                            <Picker.item label="Escolha o Nivel de Acesso: " value="Selecionar"  />
                             <Picker.item label="Administrador" value="Administrador" />
                             <Picker.item label="Atendente" value="Atendente" />
 

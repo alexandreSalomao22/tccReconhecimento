@@ -9,14 +9,15 @@ export default class Home extends Component{
     render(){
         return(
             <View style={styles.homeStyle}>
-                <Image source={UnipLogo} />
+            <View>
+                <Text style={styles.txtHome}>Biometria Facial</Text>
             </View>
-            
+            <View >
+                <Image style={styles.imgHome} source={UnipLogo} />
+            </View>
+            </View>
         )
     }
-
-    
-
 }
 
 const styles = StyleSheet.create({
@@ -25,8 +26,16 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         flex: 3,
         width: '100%',
-        justifyContent: 'space-around',
+        justifyContent: 'center',
         alignItems: 'center'
     },
+    txtHome: {
+        fontSize: 30
+    },
+    imgHome:{
+        width: 250,
+        height: 250,
+        resizeMode: 'contain'
+    }
 
 })
