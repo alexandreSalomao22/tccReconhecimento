@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, TouchableOpacity, Alert } from 'react-native';
+import { Text, View, TouchableOpacity, Alert, StyleSheet } from 'react-native';
 import { Camera } from 'expo-camera';
+import { Entypo } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 
 takePicture = () => {
   const options = { quality: 1, base64: true, fixOrientation: true, 
@@ -43,23 +45,24 @@ export default function GetCamera() {
   return (
     <View style={{ flex: 1 }}>
       <Camera style={{ flex: 1 }} type={type} ref={(ref) => { this.camera = ref }}>
-        <View>
-          <TouchableOpacity onPress={this.takePicture}>
-            <Text style={{ fontSize: 50, marginBottom: 10, color: 'white' }}> TIRAR FOTO </Text>
-          </TouchableOpacity>  
-        </View>  
         <View
           style={{
             flex: 1,
             backgroundColor: 'transparent',
             flexDirection: 'row',
+            justifyContent: 'space-around',
+            alignItems: 'flex-end'
           }}>
           <TouchableOpacity
-            style={{
-              flex: 0.1,
-              alignSelf: 'flex-end',
-              alignItems: 'center',
-            }}
+          style={{
+            backgroundColor: '#808080',
+            marginBottom: 20,
+            borderRadius: 10,
+            padding: 10,
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
             onPress={() => {
               setType(
                 type === Camera.Constants.Type.back
@@ -67,8 +70,11 @@ export default function GetCamera() {
                   : Camera.Constants.Type.back
               );
             }}>
-            <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}> Flip </Text>
+            <Ionicons name="md-reverse-camera" size={47} color="white" />
           </TouchableOpacity>
+          <TouchableOpacity onPress={this.takePicture} style={{backgroundColor: '#696969', marginBottom: 20,  borderRadius: 10,  padding: 10,  flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+            <Entypo name="camera" size={47} color="white" />
+          </TouchableOpacity>  
         </View>
       </Camera>
     </View>

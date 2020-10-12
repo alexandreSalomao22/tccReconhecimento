@@ -15,6 +15,10 @@ export default class NovoUsuario extends Component{
     {/* this.props.navigation.navigate('Home'); //navegação do botão */}
     }
 
+    goToImg = () =>{
+        this.props.navigation.navigate('GetCamera');
+    }
+
     state = {
         nivelAcesso: ''
     }
@@ -54,7 +58,7 @@ export default class NovoUsuario extends Component{
                     </Picker>
                     </View>
                     
-                    <TouchableOpacity onPress={ this.login } style={styles.touchableButton}> 
+                    <TouchableOpacity onPress={ this.goToImg } style={styles.touchableButton}> 
                         <View style={styles.button}>
                         <Entypo name="camera" size={24} color="black" />
                             <Text style={styles.buttonText}>Capturar Imagens</Text>

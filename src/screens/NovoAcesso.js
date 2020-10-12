@@ -12,6 +12,10 @@ export default class NovoAcesso extends Component{
     {/* this.props.navigation.navigate('Home'); //navegação do botão */}
     }
 
+    goToImg = () =>{
+        this.props.navigation.navigate('GetCamera');
+    }
+
     render(){
         return(
             <View style={styles.main}>
@@ -24,7 +28,7 @@ export default class NovoAcesso extends Component{
                     <Input placeholder="Digite o Nome Completo" />
                     <Input placeholder="Digite o CPF" />
                     <Input placeholder="RA / Funcional" />
-                    <TouchableOpacity onPress={this.login} style={styles.touchableButton}> 
+                    <TouchableOpacity onPress={this.goToImg} style={styles.touchableButton}> 
                         <View style={styles.button}>
                         <Entypo name="camera" size={24} color="black" />
                             <Text style={styles.buttonText}>Capturar Imagens</Text>

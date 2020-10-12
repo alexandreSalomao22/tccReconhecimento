@@ -30,11 +30,6 @@ class Sidebar extends React.Component {
   state = {
       routes:[
         {
-          name:"GetCamera",
-          icon: "camera",
-          text:"GetCamera"
-        },
-        {
               name:"Home",
               icon:"home",
               text:"Home"
