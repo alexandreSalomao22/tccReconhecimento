@@ -36,6 +36,18 @@ export default class NovoAcesso extends Component{
                     </TouchableOpacity>
                 </View>
                 <View style={styles.rodape}>
+                <TouchableOpacity  style={styles.touchableButton}> 
+                        <View style={styles.buttonInferior}>
+                            <Text style={styles.buttonText}>Salvar</Text>
+                        </View>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity  style={styles.touchableButton}> 
+                        <View style={styles.buttonInferior}>
+                            <Text style={styles.buttonText}>Cancelar</Text>
+                        </View>
+                    </TouchableOpacity>
+
                 {/*renderItem={({item})=> ( 
                             <Image 
                             source={{uri: item.picture.user}} 
@@ -80,7 +92,6 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         flex: 1,
         width: '100%',
-        backgroundColor: 'blue',
         textAlign: 'right'
     },
     cabecalho:{
@@ -113,6 +124,24 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 20,
         color: commonStyles.colors.primary
+    },
+
+    buttonInferior:{
+        width: '45%',
+        height: 55,
+        borderRadius: 10,
+        backgroundColor: commonStyles.colors.secondary,
+        alignItems: 'center',
+        justifyContent: 'center',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.22,
+        shadowRadius: 2.22,
+
+        elevation: 5,
     }
 
 

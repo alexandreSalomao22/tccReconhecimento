@@ -57,16 +57,21 @@ export default class NovoUsuario extends Component{
 
                     </Picker>
                     </View>
-                    
-                    <TouchableOpacity onPress={ this.goToImg } style={styles.touchableButton}> 
-                        <View style={styles.button}>
-                        <Entypo name="camera" size={24} color="black" />
-                            <Text style={styles.buttonText}>Capturar Imagens</Text>
-                           
-                        </View>
-                    </TouchableOpacity>
                 </View>
                 <View style={styles.rodape}>
+                        
+                        <TouchableOpacity  style={styles.touchableButton}> 
+                        <View style={styles.buttonInferior}>
+                            <Text style={styles.buttonText}>Salvar</Text>
+                        </View>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity  style={styles.touchableButton}> 
+                        <View style={styles.buttonInferior}>
+                            <Text style={styles.buttonText}>Cancelar</Text>
+                        </View>
+                    </TouchableOpacity>
+                
                 {/*renderItem={({item})=> ( 
                             <Image 
                             source={{uri: item.picture.user}} 
@@ -159,6 +164,24 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 20,
         color: commonStyles.colors.primary
+    },
+
+    buttonInferior:{
+        width: '45%',
+        height: 55,
+        borderRadius: 10,
+        backgroundColor: commonStyles.colors.secondary,
+        alignItems: 'center',
+        justifyContent: 'center',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.22,
+        shadowRadius: 2.22,
+
+        elevation: 5,
     }
 
 
