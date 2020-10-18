@@ -35,7 +35,6 @@ export default class NovoUsuario extends Component{
                     <Input placeholder="Digite o Nome Completo" />
                     <Input placeholder="Digite a Funcional" />
                     <Input placeholder="Digite o CPF" />
-                    <Input placeholder="Digite o Usuário" />
                     <Input placeholder="Digite a Senha" />
                     <Input placeholder="Repetir a Senha" />
                     <View 
