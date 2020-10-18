@@ -17,11 +17,11 @@ export default class ConsultarUsuario extends Component{
     }
 
     loadUsers = () => {
-        fetch("http://localhost:3000/user/listaUsers") 
+        fetch("http://192.168.0.47:3000/user/listaUsers") 
             .then( res => res.json())
             .then(res => {
                 this.setState ({
-                    data: res.results || [ ] 
+                    data: res || [ ] 
                 })
             })
     }

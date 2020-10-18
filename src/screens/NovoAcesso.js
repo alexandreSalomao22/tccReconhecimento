@@ -5,7 +5,7 @@ import unipSuperior from '../../assets/unipSuperior.png'
 import commonStyles from '../commonStyles'
 import {cpfMask} from '../components/mask'
 import { Entypo } from '@expo/vector-icons'; 
-import GridFotos from '../components/GridFotos'
+// import GridFotos from '../components/GridFotos'
 
 export default class NovoAcesso extends Component{
 
@@ -17,7 +17,7 @@ export default class NovoAcesso extends Component{
         this.props.navigation.navigate('GetCamera');
     }
 
-    sendRegister = async () => {
+   /* sendRegister = async () => {
         const BASE_URL = "http://192.168.100.5:3000/user/addUser";
 
         const rawResponse = await fetch (`${BASE_URL}`, {
@@ -49,7 +49,7 @@ export default class NovoAcesso extends Component{
         cpf: '',
         nivelAcesso: null
     }
-
+*/
     render(){
         return(
             <View style={styles.main}>
@@ -70,8 +70,9 @@ export default class NovoAcesso extends Component{
                     </TouchableOpacity>
                 </View>
                 <View style={styles.rodape}>
-                    <GridFotos />
-                    {/*renderItem={({item})=> ( 
+                  
+                    {/*<GridFotos /> 
+                    renderItem={({item})=> ( 
                                 <Image 
                                 source={{uri: item.picture.user}} 
                                 />

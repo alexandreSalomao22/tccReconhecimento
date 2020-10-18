@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Dimensions, FlatList, Image } from 'react-native';
 import { Constants } from 'expo';
-import data from '../../data'
+// import data from '../../data'
 let {width} = Dimensions.get('window')
 
 let numberGrid = 2
