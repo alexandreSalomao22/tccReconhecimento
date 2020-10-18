@@ -11,7 +11,6 @@ export default class Login extends Component{
         this.props.navigation.navigate('Home');
     }
 
-
     render(){
         return(
             <View style={styles.main}>
@@ -29,17 +28,14 @@ export default class Login extends Component{
                     </TouchableOpacity>
                 </View>
                 <View style={styles.rodape}>
-                         <Text>Esqueceu sua senha?</Text>
+                    <Text>Esqueceu sua senha?</Text>
                 </View>
             </View>
-            
         )
     }
-
 }
 
 const styles = StyleSheet.create({
-
     main:{
         width: '100%',
         flex: 1,
@@ -93,6 +89,4 @@ const styles = StyleSheet.create({
         fontSize: 27,
         color: commonStyles.colors.primary
     }
-
-
 })
