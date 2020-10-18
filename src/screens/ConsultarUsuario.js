@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {View, StyleSheet, Text, TouchableOpacity, Image} from 'react-native'
+import {View, StyleSheet, Text, TouchableOpacity, Image, FlatList} from 'react-native'
 import { Entypo } from '@expo/vector-icons'; 
 
 
@@ -8,7 +8,7 @@ export default class ConsultarUsuario extends Component{
     constructor (props) {
         super(props);
         this.state = {
-            data: []
+            data: [ ]
         }
     }
 
@@ -17,15 +17,13 @@ export default class ConsultarUsuario extends Component{
     }
 
     loadUsers = () => {
-
-        fetch("http://localhost:3000/user/listaUsers") //alterar para  a url get (list )  da api
+        fetch("http://localhost:3000/user/listaUsers") 
             .then( res => res.json())
             .then(res => {
                 this.setState ({
-                    data: res.results || [] //results de acordo com o nome do campo que traz na api no caso no JSON (alterar)
+                    data: res.results || [ ] 
                 })
             })
-
     }
 
     componentDidMount() {
@@ -40,14 +38,14 @@ export default class ConsultarUsuario extends Component{
                         data={this.state.data}
                         renderItem={({item}) => (
                             <View style={styles.line}>
-                                    <Entypo name="edit" size={24} color="black" style={style.icone} />
-                                            <View style ={style.info}>
-                                                <Text style={style.codigo}>{item.codigo}</Text>
-                                                 <Text style={styles.name}>{item.name}</Text>
+                                    <Entypo name="edit" size={24} color="black" style={styles.icone} />
+                                            <View style ={styles.info}>
+                                                <Text style={styles.codigo}>{item.funcional}</Text>
+                                                 <Text style={styles.name}>{item.nome}</Text>
                                             </View>
                             </View>
                         )}
-                        keyExtractor={ item => item.codigo}
+                        keyExtractor={ item => item.funcional}
                 />
             </View>
         )
