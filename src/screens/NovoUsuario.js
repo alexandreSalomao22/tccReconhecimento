@@ -65,7 +65,6 @@ export default class NovoUsuario extends Component{
                     <Input placeholder=" Digite o Nome Completo" onChangeText={text => this.setState({nomeCompleto: text})}/>
                     <Input placeholder=" Digite a Funcional" onChangeText={text => this.setState({funcional: text})}/>
                     <Input placeholder=" Digite o CPF" onChangeText={text => this.setState({cpf: text})}/>
-                    <Input placeholder=" Digite o Usuário" onChangeText={text => this.setState({usuario: text})}/>
                     <Input placeholder=" Digite a Senha" onChangeText={text => this.setState({senha: text})}/>
                     <Input placeholder=" Repetir a Senha" />
                     <View style={styles.pickerComponente} >
@@ -84,19 +83,19 @@ export default class NovoUsuario extends Component{
                             <Picker.item label="Atendente" value="2" />
                         </Picker>
                     </View>
-
-                    <TouchableOpacity onPress={this.sendRegister} style={styles.touchableButton}> 
-                        <View style={styles.button}>
-                            <Text style={styles.buttonText}>Cadastrar</Text>
-                        </View>
-                    </TouchableOpacity>
                 </View>
                 <View style={styles.rodape}>
-                    {/*renderItem={({item})=> ( 
-                                <Image 
-                                source={{uri: item.picture.user}} 
-                                />
-                    )}  */}  
+                    <TouchableOpacity onPress={this.sendRegister} style={styles.touchableButton}> 
+                        <View style={styles.buttonInferior}>
+                            <Text style={styles.buttonText}>Salvar</Text>
+                        </View>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity  style={styles.touchableButton}> 
+                        <View style={styles.buttonInferior}>
+                            <Text style={styles.buttonText}>Cancelar</Text>
+                        </View>
+                    </TouchableOpacity>
                 </View>
             </View>
         )
@@ -180,5 +179,23 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 20,
         color: commonStyles.colors.primary
+    },
+
+    buttonInferior:{
+        width: '45%',
+        height: 55,
+        borderRadius: 10,
+        backgroundColor: commonStyles.colors.secondary,
+        alignItems: 'center',
+        justifyContent: 'center',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.22,
+        shadowRadius: 2.22,
+
+        elevation: 5,
     }
 })

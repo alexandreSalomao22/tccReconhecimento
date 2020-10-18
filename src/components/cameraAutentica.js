@@ -8,7 +8,7 @@ import * as FaceDetector from 'expo-face-detector';
 import AutenticaMask from './AutenticaMask';
 const flexStyle = { flex: 1 }
 const flexCenterStyle = { flex: 1, justifyContent: 'center', alignItems: 'center' }
-const BASE_URL = 'http://192.168.100.5:3000/face/recognize';
+const BASE_URL = 'http://192.168.0.47:3000/face/recognize';
 
 export default class FaceCamera extends React.Component {
     constructor(props) {

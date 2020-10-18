@@ -13,6 +13,10 @@ export default class ConsultarAcesso extends Component{
         }
     }
 
+    goToListAcesso = () =>{
+        this.props.navigation.navigate('EditarAcesso');
+    }
+
     loadUsers = () => {
 
         fetch("end..http") //alterar para  a url get (list )  da api
@@ -40,7 +44,7 @@ export default class ConsultarAcesso extends Component{
                                     <Entypo name="edit" size={24} color="black" style={style.icone} />
                                             <View style ={style.info}>
                                                 <Text style={style.codigo}>{item.codigo}</Text>
-                                                 <Text style={styles.name}>{item.name} {item.name.first} {item.name.last}</Text>
+                                                 <Text style={styles.name}>{item.name}</Text>
                                             </View>
                             </View>
                         )}

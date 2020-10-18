@@ -12,9 +12,13 @@ export default class ConsultarUsuario extends Component{
         }
     }
 
+    goToListUsuario = () =>{
+        this.props.navigation.navigate('EditarUsuario');
+    }
+
     loadUsers = () => {
 
-        fetch("end..http") //alterar para  a url get (list )  da api
+        fetch("http://localhost:3000/user/listaUsers") //alterar para  a url get (list )  da api
             .then( res => res.json())
             .then(res => {
                 this.setState ({
@@ -39,7 +43,7 @@ export default class ConsultarUsuario extends Component{
                                     <Entypo name="edit" size={24} color="black" style={style.icone} />
                                             <View style ={style.info}>
                                                 <Text style={style.codigo}>{item.codigo}</Text>
-                                                 <Text style={styles.name}>{item.name} {item.name.first} {item.name.last}</Text>
+                                                 <Text style={styles.name}>{item.name}</Text>
                                             </View>
                             </View>
                         )}
