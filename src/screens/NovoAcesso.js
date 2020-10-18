@@ -5,6 +5,7 @@ import unipSuperior from '../../assets/unipSuperior.png'
 import commonStyles from '../commonStyles'
 import {cpfMask} from '../components/mask'
 import { Entypo } from '@expo/vector-icons'; 
+import GridFotos from '../components/GridFotos'
 
 export default class NovoAcesso extends Component{
 
@@ -14,6 +15,39 @@ export default class NovoAcesso extends Component{
 
     goToImg = () =>{
         this.props.navigation.navigate('GetCamera');
+    }
+
+    sendRegister = async () => {
+        const BASE_URL = "http://192.168.100.5:3000/user/addUser";
+
+        const rawResponse = await fetch (`${BASE_URL}`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                'funcional' : this.state.funcional,
+                'nome': this.state.nomeCompleto,
+                'cpf': this.state.cpf,
+                'nivel_acesso': this.state.nivelAcesso
+            })
+        });
+        var content = await rawResponse.json();
+        
+        if (content.status != 200) {
+            alert("Erro ao cadastrar usuário. Tente novamente!")
+        } else {
+            alert(content.message)
+            this.props.navigation.navigate('NovoUsuario');
+        }
+    }
+
+    state = {
+        nomeCompleto: '',
+        funcional: '',
+        cpf: '',
+        nivelAcesso: null
     }
 
     render(){
@@ -36,12 +70,12 @@ export default class NovoAcesso extends Component{
                     </TouchableOpacity>
                 </View>
                 <View style={styles.rodape}>
-                {/*renderItem={({item})=> ( 
-                            <Image 
-                            source={{uri: item.picture.user}} 
-                             />
-                )}  */}
-                         
+                    <GridFotos />
+                    {/*renderItem={({item})=> ( 
+                                <Image 
+                                source={{uri: item.picture.user}} 
+                                />
+                    )}  */}
                 </View>
             </View>
             
