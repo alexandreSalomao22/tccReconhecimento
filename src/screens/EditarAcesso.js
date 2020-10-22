@@ -13,6 +13,15 @@ export default class EditarAcesso extends Component{
     {/* this.props.navigation.navigate('Home'); //navegação do botão */}
     }
 
+    constructor(props){
+        super(props)
+        console.log(props.navigation.state.params.id)
+    }
+
+    componentDidMount(){
+        //console.log("ID DO ACESSO" + this.props.navigation.route.id)
+    }
+
     render(){
         return(
             <View style={styles.main}>

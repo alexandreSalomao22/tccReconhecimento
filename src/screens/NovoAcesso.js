@@ -6,7 +6,6 @@ import commonStyles from '../commonStyles'
 import {cpfMask} from '../components/mask'
 import { Entypo } from '@expo/vector-icons'; 
 import { Camera } from 'expo-camera';
-import GridFotos from '../components/GridFotos'
 let {width} = Dimensions.get('window')
 
 let numberGrid = 2
@@ -18,6 +17,7 @@ export default class NovoAcesso extends Component{
         ra: '',
         cpf: '',
         fotos: [],
+        localFotos: [],
         nivelAcesso: null
     }
 
@@ -28,7 +28,8 @@ export default class NovoAcesso extends Component{
                 nomeCompleto: params.nomeCompleto,
                 cpf: params.cpf,
                 ra: params.ra,
-                fotos: params.fotos
+                fotos: params.fotos,
+                localFotos: params.localFotos
             })
         }
         //console.log(this.props.navigation.state);
@@ -43,7 +44,8 @@ export default class NovoAcesso extends Component{
     }
 
     sendRegister = async () => {
-        const BASE_URL = "http://192.168.100.5:3000/user/addAcesso";
+    
+        const BASE_URL = "http://192.168.0.9:3000/user/addAcesso";
 
         const rawResponse = await fetch (`${BASE_URL}`, {
             method: 'POST',
@@ -69,13 +71,14 @@ export default class NovoAcesso extends Component{
     }
 
     alertImage = (item) => e => {
+        console.log(this.state.localFotos)
         Alert.alert(
             "Remover",
             "Deseja remover essa imagem?",
             [
               {
                 text: "Sim",
-                onPress: () => console.log("Sim")
+                onPress: () => this.removeImage(item)
               },
               {
                 text: "Não",
@@ -94,15 +97,22 @@ export default class NovoAcesso extends Component{
 
             i++;
         }) */
-        console.log(item);
-        console.log("Chegou aqui")
+        //console.log(item);
+        //console.log("Chegou aqui")
+    }
+
+    removeImage = (image) =>{
+        console.log("REMOVE IMAGE")
+        this.state.fotos.pop(image)
+        testeColutti = this.state.fotos
+        this.setState({fotos: testeColutti})
     }
 
     renderItem = ({item}) => {
         var id = 123;
         return (
-            <TouchableOpacity onPress={this.alertImage(id)} key={(_, index) => index} >
-                <Image source={{uri: 'data:image/jpeg;base64,'+ item.foto}} style={styles.itemImage}/>
+            <TouchableOpacity onPress={this.alertImage(item)} key={(_, index) => index} >
+                <Image source={{uri: 'data:image/jpeg;base64,'+ item}} style={styles.itemImage}/>
             </TouchableOpacity>
         )
     }
@@ -128,7 +138,7 @@ export default class NovoAcesso extends Component{
                     </TouchableOpacity>
                 </View>
                 <Text style={styles.textoLogo}>Imagens</Text>
-                <View style={styles.rodape}>
+                <View style={styles.conteudoImagens}>
                     <FlatList  
                         keyExtractor={(_, index) => index} 
                         numColumns={numberGrid} data={fotos} 
@@ -176,6 +186,12 @@ const styles = StyleSheet.create({
 
     },
     rodape:{
+        flexDirection: 'column',
+        flex: 1,
+        width: '100%',
+        textAlign: 'right'
+    },
+    conteudoImagens:{
         flexDirection: 'column',
         flex: 1,
         width: '100%',
@@ -232,6 +248,7 @@ const styles = StyleSheet.create({
     },
     itemImage:{
         width: widthGrid,
-        height: widthGrid
+        height: 124,
+        justifyContent: 'center'
     }
 })

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, TouchableOpacity, Alert, StyleSheet } from 'react-native';
+import { Text, View, TouchableOpacity, Alert, StyleSheet, ProgressBarAndroid } from 'react-native';
 import * as Permissions from 'expo-permissions';
 import { Camera } from 'expo-camera';
 import { Entypo } from '@expo/vector-icons';
@@ -27,6 +27,15 @@ export default class GetCamera extends React.Component {
   }
 
   takePicture = () => {
+    setTimeout(() => {
+      Alert.alert(
+        "inserindo imagem...",
+        "...",
+        [
+        ],
+        { cancelable: false }
+      );
+    }, 100);
     const options = { quality: 0.2, base64: true, fixOrientation: true, exif: true};
     if (this.camera) {
         this.camera.takePictureAsync(options).then(photo => {
@@ -51,14 +60,16 @@ export default class GetCamera extends React.Component {
   return = (photo) => {
     var params = this.props.navigation.state.params;
     if (photo.base64 != undefined) {
-      params.fotos.push({"foto": photo.base64})
+      params.fotos.push(photo.base64)
+      params.localFotos.push({"infoFoto": "foto"+Math.random()})
     }
+    console.log(params.localFotos)
     //params.fotos[] = "teste";
     this.props.navigation.navigate('NovoAcesso', params);
   }
 
   sendRegister = async () => {
-    const BASE_URL = "http://192.168.100.5:3000/user/addAcesso";
+    const BASE_URL = "http://192.168.0.9:3000/user/addAcesso";
 
     const rawResponse = await fetch (`${BASE_URL}`, {
         method: 'POST',

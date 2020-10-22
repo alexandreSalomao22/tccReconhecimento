@@ -13,20 +13,21 @@ export default class ConsultarAcesso extends Component{
         }
     }
 
-    goToListAcesso = () =>{
-        this.props.navigation.navigate('EditarAcesso');
+    goToListAcesso = (id) =>{
+        console.log("GO TO LIST ACESSO")
+        console.log(id)
+        this.props.navigation.navigate('EditarAcesso', {id: id});
     }
 
     loadUsers = () => {
 
-        fetch("http://192.168.0.47:3000/user/listaUsers") 
+        fetch("http://192.168.0.9:3000/user/listaUsers") 
             .then( res => res.json())
             .then(res => {
                 this.setState ({
                     data: res || [ ] 
                 })
-            })
-
+            })   
     }
 
     componentDidMount() {
@@ -36,20 +37,26 @@ export default class ConsultarAcesso extends Component{
 
     render(){
         return(
-            <View style={styles.container}>
-                <FlatList
-                        data={this.state.data}
-                        renderItem={({item}) => (
-                            <View style={styles.line}>
-                                    <Entypo name="edit" size={24} color="black" style={styles.icone} />
-                                            <View style ={styles.info}>
-                                                <Text style={styles.codigo}>{item.ra}</Text>
-                                                 <Text style={styles.name}>{item.nome}</Text>
-                                            </View>
-                            </View>
-                        )}
-                        keyExtractor={ item => item.ra}
-                />
+            <View style={styles.mainView}>
+                <Text style={styles.titleTxt}>Lista de Acessos</Text>
+                <View style={styles.container}>
+                    <FlatList
+                            style={styles.flatList}
+                            data={this.state.data}
+                            renderItem={({item}) => (
+                                <View style={styles.line}>
+                                    <TouchableOpacity onPress={()=> this.goToListAcesso(item.ra)}>
+                                        <Entypo name="edit" size={24} color="black" style={styles.icone} />
+                                    </TouchableOpacity>
+                                                <View style ={styles.info}>
+                                                    <Text style={styles.codigo}>{item.ra}</Text>
+                                                    <Text style={styles.name}>{item.nome}</Text>
+                                                </View>
+                                </View>
+                            )}
+                            keyExtractor={ item => item.ra}
+                    />
+                </View>
             </View>
         )
     }
@@ -58,12 +65,26 @@ export default class ConsultarAcesso extends Component{
 
 const styles = StyleSheet.create({
 
+    titleTxt:{
+        fontSize: 20,
+        marginTop: 30
+    },
+
+    mainView:{
+        width: '100%',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    flatList:{
+        marginLeft: 0,
+        paddingLeft: 0
+    },
     container: {
-        marginTop: 10,
-        marginLeft: 10,
+        marginTop: 30,
         backgroundColor: "#FFF",
         borderTopWidth:0,
-        borderBottomWidth:0
+        borderBottomWidth:0,
+        width: '95%'
     },
     logo: {
         width: 100,

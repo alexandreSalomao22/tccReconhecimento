@@ -17,7 +17,7 @@ export default class ConsultarUsuario extends Component{
     }
 
     loadUsers = () => {
-        fetch("http://192.168.0.47:3000/user/listaUsers") 
+        fetch("http://192.168.0.9:3000/user/listaUsers") 
             .then( res => res.json())
             .then(res => {
                 this.setState ({
@@ -33,20 +33,24 @@ export default class ConsultarUsuario extends Component{
 
     render(){
         return(
-            <View style={styles.container}>
-                <FlatList
-                        data={this.state.data}
-                        renderItem={({item}) => (
-                            <View style={styles.line}>
-                                    <Entypo name="edit" size={24} color="black" style={styles.icone} />
-                                            <View style ={styles.info}>
-                                                <Text style={styles.codigo}>{item.funcional}</Text>
-                                                 <Text style={styles.name}>{item.nome}</Text>
-                                            </View>
-                            </View>
-                        )}
-                        keyExtractor={ item => item.funcional}
-                />
+            <View style={styles.mainView}>
+                <Text style={styles.titleTxt}>Lista de Usuários</Text>
+                <View style={styles.container}>
+                    <FlatList
+                            style={styles.flatList}
+                            data={this.state.data}
+                            renderItem={({item}) => (
+                                <View style={styles.line}>
+                                        <Entypo name="edit" size={20} color="black" style={styles.icone} />
+                                                <View style ={styles.info}>
+                                                    <Text style={styles.codigo}>{item.funcional}</Text>
+                                                    <Text style={styles.name}>{item.nome}</Text>
+                                                </View>
+                                </View>
+                            )}
+                            keyExtractor={ item => item.funcional}
+                    />
+                </View>
             </View>
         )
     }
@@ -55,12 +59,26 @@ export default class ConsultarUsuario extends Component{
 
 const styles = StyleSheet.create({
 
+    titleTxt:{
+        fontSize: 20,
+        marginTop: 30
+    },
+
+    mainView:{
+        width: '100%',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    flatList:{
+        marginLeft: 0,
+        paddingLeft: 0
+    },  
     container: {
-        marginTop: 10,
-        marginLeft: 10,
+        marginTop: 30,
         backgroundColor: "#FFF",
         borderTopWidth:0,
-        borderBottomWidth:0
+        borderBottomWidth:0,
+        width: '95%',
     },
     logo: {
         width: 100,
@@ -78,7 +96,8 @@ const styles = StyleSheet.create({
         height: 40,
         borderRadius: 50,
         marginRight: 10,
-        alignSelf: "center"
+        alignSelf: "center",
+        padding: 10
     },
     info: {
         flexDirection: "column",

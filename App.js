@@ -13,6 +13,7 @@ import NovoAcesso from './src/screens/NovoAcesso'
 import ConsultarAcesso from './src/screens/ConsultarAcesso'
 import NovoUsuario from './src/screens/NovoUsuario'
 import ConsultarUsuario from './src/screens/ConsultarUsuario'
+import EditarAcesso from './src/screens/EditarAcesso'
 import Sair from './src/screens/Sair'
 import Login from './src/screens/Login'
 import GetCamera from './src/screens/GetCamera'
@@ -95,7 +96,8 @@ const Drawer = createDrawerNavigator(
     ConsultarAcesso:{ screen: ConsultarAcesso},
     NovoUsuario:{ screen: NovoUsuario},
     ConsultarUsuario:{ screen: ConsultarUsuario},
-    Sair:{ screen: Sair}
+    Sair:{ screen: Sair},
+    EditarAcesso: {screen: EditarAcesso}
 
   },
   {
