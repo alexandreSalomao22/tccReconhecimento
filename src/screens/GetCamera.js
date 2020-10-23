@@ -43,10 +43,8 @@ export default class GetCamera extends React.Component {
           Alert.alert(
             'FOTO TIRADA!'
           )
-          //console.log(photo)
+          
           this.return(photo);
-          //console.log(photo);    
-          //this.props.navigation.navigate('GetCamera', photo); 
         });    
     }
   };
@@ -63,9 +61,14 @@ export default class GetCamera extends React.Component {
       params.fotos.push(photo.base64)
       params.localFotos.push({"infoFoto": "foto"+Math.random()})
     }
-    console.log(params.localFotos)
-    //params.fotos[] = "teste";
-    this.props.navigation.navigate('NovoAcesso', params);
+
+    console.log(params.id)
+
+    if(params.id != undefined) {
+      this.props.navigation.navigate('NovoAcesso', params);
+    } else {
+      this.props.navigation.navigate('EditarAcesso', params);
+    }
   }
 
   sendRegister = async () => {

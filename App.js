@@ -14,6 +14,7 @@ import ConsultarAcesso from './src/screens/ConsultarAcesso'
 import NovoUsuario from './src/screens/NovoUsuario'
 import ConsultarUsuario from './src/screens/ConsultarUsuario'
 import EditarAcesso from './src/screens/EditarAcesso'
+import EditarUsuario from './src/screens/EditarUsuario'
 import Sair from './src/screens/Sair'
 import Login from './src/screens/Login'
 import GetCamera from './src/screens/GetCamera'
@@ -71,9 +72,9 @@ class Sidebar extends React.Component {
   render(){
       return (
           <View style={styles.container}>
-              <Image source={require("./assets/profile.jpg")} style={styles.profileImg}/>
+              <Image source={require("./assets/unipSuperior.png")} />
               <Text style={{fontWeight:"bold",fontSize:16,marginTop:10}}>Reconhecimento Facial</Text>
-              <Text style={{color:"gray",marginBottom:10}}>reconhecimento@unip.com.br</Text>
+              <Text style={{color:"gray",marginBottom:10}}>Ambiente de teste</Text>
               <View style={styles.sidebarDivider}></View>
               <FlatList
                   style={{width:"100%",marginLeft:30}}
@@ -97,8 +98,8 @@ const Drawer = createDrawerNavigator(
     NovoUsuario:{ screen: NovoUsuario},
     ConsultarUsuario:{ screen: ConsultarUsuario},
     Sair:{ screen: Sair},
-    EditarAcesso: {screen: EditarAcesso}
-
+    EditarAcesso: {screen: EditarAcesso},
+    EditarUsuario: {screen: EditarUsuario}
   },
   {
     initialRouteName: "Login",

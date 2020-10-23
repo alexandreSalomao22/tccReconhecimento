@@ -44,8 +44,7 @@ export default class NovoAcesso extends Component{
     }
 
     sendRegister = async () => {
-    
-        const BASE_URL = "http://192.168.0.9:3000/user/addAcesso";
+        const BASE_URL = "http://192.168.100.5:3000/user/addAcesso";
 
         const rawResponse = await fetch (`${BASE_URL}`, {
             method: 'POST',
@@ -86,30 +85,15 @@ export default class NovoAcesso extends Component{
               }
             ],
             { cancelable: false }
-          );
-        /*const { fotos } = this.state;
-        let i = 0;
-        fotos.forEach(ft => {
-            if (ft.foto == item.foto) {
-                let index = array.indexOf(item.foto);
-                console.log(index)
-            }
-
-            i++;
-        }) */
-        //console.log(item);
-        //console.log("Chegou aqui")
+        );
     }
 
     removeImage = (image) =>{
-        console.log("REMOVE IMAGE")
         this.state.fotos.pop(image)
-        testeColutti = this.state.fotos
-        this.setState({fotos: testeColutti})
+        this.setState({fotos: this.state.fotos})
     }
 
     renderItem = ({item}) => {
-        var id = 123;
         return (
             <TouchableOpacity onPress={this.alertImage(item)} key={(_, index) => index} >
                 <Image source={{uri: 'data:image/jpeg;base64,'+ item}} style={styles.itemImage}/>

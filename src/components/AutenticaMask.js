@@ -19,27 +19,12 @@ const AutenticaMask = ({
       opacity: 0.5,
       backgroundColor: 'transparent',
       left: containerX,
-      top: containerY, 
+      top: containerY*1.8, 
+      width: faceWidth,
+      height: faceWidth,
       borderWidth: 5,
       borderColor: 'red'
-    }}>
-      <View style = {{
-        //Left
-        borderLeftWidth: 50,
-        // borderLeftColor: 'red',
-        //Right
-        borderRightWidth: 100,
-        //borderRightColor: 'red',
-        //Bottom
-        borderBottomWidth: 100,
-        //borderBottomColor: 'red',
-        //Top
-        borderTopWidth: 100,
-        //borderTopColor: 'red'
-        //backgroundColor: 'white'
-       }} 
-      />
-    </View>
+    }} />
   );
 };
 

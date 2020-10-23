@@ -137,7 +137,7 @@ export default class FaceCamera extends React.Component {
               }}
               onFacesDetected={this.onFacesDetected}
             />
-            { faces.map(face => <AutenticaMask key={face.faceID} face={face}></AutenticaMask>) }
+            { faces.map(face => <AutenticaMask key={face.faceID} face={face} />) }
           </View>
         )
     }

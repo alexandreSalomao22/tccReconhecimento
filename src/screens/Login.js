@@ -7,8 +7,32 @@ import unipSuperior from '../../assets/unipSuperior.png'
 
 export default class Login extends Component{
 
-    login = () =>{
-        this.props.navigation.navigate('Home');
+    login = async () => {
+        const BASE_URL = "http://192.168.100.5:3000/auth";
+
+        const rawResponse = await fetch (`${BASE_URL}`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                'usuario': this.state.usuario,
+                'senha': this.state.senha
+            })
+        });
+        var content = await rawResponse.json();
+        console.log(content)
+        if (content.status != 200) {
+            alert(content.message)
+        } else {
+            this.props.navigation.navigate('Home');
+        }
+    }
+
+    state = {
+        usuario: '',
+        senha: '',
     }
 
     render(){
@@ -19,8 +43,8 @@ export default class Login extends Component{
                 </View>
                 <View style={styles.infoLogin}>
                     <Image source={UnipLogo} />
-                    <Input placeholder="Digite seu usuário" />
-                    <Input placeholder="Digite sua senha" type="password" />
+                    <Input placeholder="Digite seu usuário" onChangeText={text => this.setState({usuario: text})} />
+                    <Input placeholder="Digite sua senha" onChangeText={text => this.setState({senha: text})} secureTextEntry={true} type="password" />
                     <TouchableOpacity onPress={this.login} style={styles.touchableButton}> 
                         <View style={styles.button}>
                             <Text style={styles.buttonText}>Entrar</Text>

@@ -78,9 +78,9 @@ export default class NovoUsuario extends Component{
                                     })
                             }
                         >
-                            <Picker.item label="Escolha o Nivel de Acesso: " value="Selecionar" />
-                            <Picker.item label="Administrador" value="1" />
-                            <Picker.item label="Atendente" value="2" />
+                            <Picker.Item label="Escolha o Nivel de Acesso: " value="Selecionar" />
+                            <Picker.Item label="Administrador" value="1" />
+                            <Picker.Item label="Atendente" value="2" />
                         </Picker>
                     </View>
                 </View>

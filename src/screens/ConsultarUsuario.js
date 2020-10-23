@@ -1,10 +1,9 @@
 import React, {Component} from 'react'
-import {View, StyleSheet, Text, TouchableOpacity, Image, FlatList} from 'react-native'
+import {View, StyleSheet, Text, TouchableOpacity, Image,FlatList} from 'react-native'
 import { Entypo } from '@expo/vector-icons'; 
 
 
 export default class ConsultarUsuario extends Component{
-
     constructor (props) {
         super(props);
         this.state = {
@@ -12,18 +11,18 @@ export default class ConsultarUsuario extends Component{
         }
     }
 
-    goToListUsuario = () =>{
-        this.props.navigation.navigate('EditarUsuario');
+    goToListUsuario = (id) =>{
+        this.props.navigation.navigate('EditarUsuario', {id: id});
     }
 
     loadUsers = () => {
-        fetch("http://192.168.0.9:3000/user/listaUsers") 
+        fetch("http://192.168.100.5:3000/user/listaUsers") 
             .then( res => res.json())
             .then(res => {
                 this.setState ({
                     data: res || [ ] 
                 })
-            })
+            })   
     }
 
     componentDidMount() {
@@ -41,14 +40,16 @@ export default class ConsultarUsuario extends Component{
                             data={this.state.data}
                             renderItem={({item}) => (
                                 <View style={styles.line}>
-                                        <Entypo name="edit" size={20} color="black" style={styles.icone} />
+                                    <TouchableOpacity onPress={()=> this.goToListUsuario(item.id_usuario)}>
+                                        <Entypo name="edit" size={24} color="black" style={styles.icone} />
+                                    </TouchableOpacity>
                                                 <View style ={styles.info}>
-                                                    <Text style={styles.codigo}>{item.funcional}</Text>
+                                                    <Text style={styles.codigo}>{item.ra}</Text>
                                                     <Text style={styles.name}>{item.nome}</Text>
                                                 </View>
                                 </View>
                             )}
-                            keyExtractor={ item => item.funcional}
+                            keyExtractor={ item => item.ra}
                     />
                 </View>
             </View>
@@ -72,13 +73,13 @@ const styles = StyleSheet.create({
     flatList:{
         marginLeft: 0,
         paddingLeft: 0
-    },  
+    },
     container: {
         marginTop: 30,
         backgroundColor: "#FFF",
         borderTopWidth:0,
         borderBottomWidth:0,
-        width: '95%',
+        width: '95%'
     },
     logo: {
         width: 100,
@@ -96,8 +97,7 @@ const styles = StyleSheet.create({
         height: 40,
         borderRadius: 50,
         marginRight: 10,
-        alignSelf: "center",
-        padding: 10
+        alignSelf: "center"
     },
     info: {
         flexDirection: "column",
@@ -108,6 +108,4 @@ const styles = StyleSheet.create({
         fontWeight: "bold"
     }
 })
-
-
 

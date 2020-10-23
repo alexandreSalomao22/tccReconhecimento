@@ -14,14 +14,11 @@ export default class ConsultarAcesso extends Component{
     }
 
     goToListAcesso = (id) =>{
-        console.log("GO TO LIST ACESSO")
-        console.log(id)
         this.props.navigation.navigate('EditarAcesso', {id: id});
     }
 
     loadUsers = () => {
-
-        fetch("http://192.168.0.9:3000/user/listaUsers") 
+        fetch("http://192.168.100.5:3000/user/getAcessos") 
             .then( res => res.json())
             .then(res => {
                 this.setState ({
@@ -45,7 +42,7 @@ export default class ConsultarAcesso extends Component{
                             data={this.state.data}
                             renderItem={({item}) => (
                                 <View style={styles.line}>
-                                    <TouchableOpacity onPress={()=> this.goToListAcesso(item.ra)}>
+                                    <TouchableOpacity onPress={()=> this.goToListAcesso(item.id_usuario)}>
                                         <Entypo name="edit" size={24} color="black" style={styles.icone} />
                                     </TouchableOpacity>
                                                 <View style ={styles.info}>
