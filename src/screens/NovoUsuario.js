@@ -19,7 +19,7 @@ export default class NovoUsuario extends Component{
     }*/
 
     sendRegister = async () => {
-        const BASE_URL = "http://192.168.0.9:3000/user/addUser";
+        const BASE_URL = "https://tcc-reconhecientounip.herokuapp.com/user/addUser";
 
         const rawResponse = await fetch (`${BASE_URL}`, {
             method: 'POST',

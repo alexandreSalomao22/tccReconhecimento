@@ -62,9 +62,7 @@ export default class GetCamera extends React.Component {
       params.localFotos.push({"infoFoto": "foto"+Math.random()})
     }
 
-    console.log(params.id)
-
-    if(params.id != undefined) {
+    if(!params.id) {
       this.props.navigation.navigate('NovoAcesso', params);
     } else {
       this.props.navigation.navigate('EditarAcesso', params);

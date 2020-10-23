@@ -8,7 +8,7 @@ import unipSuperior from '../../assets/unipSuperior.png'
 export default class Login extends Component{
 
     login = async () => {
-        const BASE_URL = "http://192.168.100.5:3000/auth";
+        const BASE_URL = "https://tcc-reconhecientounip.herokuapp.com/auth";
 
         const rawResponse = await fetch (`${BASE_URL}`, {
             method: 'POST',

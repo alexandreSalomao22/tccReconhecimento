@@ -15,7 +15,7 @@ export default class EditarAcesso extends Component {
     constructor(props){
         super(props)
         this.state = {
-            id: props.navigation.state.params.id,
+            id: this.props.navigation.state.params.id,
             nomeCompleto: '',
             ra: '',
             cpf: '',
@@ -44,16 +44,12 @@ export default class EditarAcesso extends Component {
         }
     }
 
-    login = () =>{
-        {/* this.props.navigation.navigate('Home'); //navegação do botão */}
-    }
-
     goToImg = () =>{
         this.props.navigation.navigate('GetCamera', this.state);
     }
 
     getDados = async () => {
-        const BASE_URL = "http://192.168.100.5:3000/user/editAcesso/"+this.state.id;
+        const BASE_URL = "https://tcc-reconhecientounip.herokuapp.com/user/editAcesso/"+this.state.id;
 
         const rawResponse = await fetch (`${BASE_URL}`, {
             method: 'GET',
@@ -76,7 +72,7 @@ export default class EditarAcesso extends Component {
             }
 
             this.setState({
-                id: content[0].id,
+                id: content[0].id_usuario,
                 nomeCompleto: content[0].nomeCompleto,
                 ra: content[0].ra,
                 cpf: ''+content[0].cpf+'',

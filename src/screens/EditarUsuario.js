@@ -12,7 +12,7 @@ export default class EditarUsuario extends Component{
     constructor(props){
         super(props)
         this.state = {
-            id: props.navigation.state.params.id,
+            id: this.props.navigation.state.params.id,
             nomeCompleto: '',
             funcional: '',
             cpf: '',
@@ -92,7 +92,7 @@ export default class EditarUsuario extends Component{
     }
     
     changeSituation = async () => {
-        const BASE_URL = "http://192.168.100.5:3000/user/deleteUser/"+this.state.id;
+        const BASE_URL = "https://tcc-reconhecientounip.herokuapp.com/user/deleteUser/"+this.state.id;
 
         const rawResponse = await fetch (`${BASE_URL}`, {
             method: 'PUT',

@@ -44,7 +44,7 @@ export default class NovoAcesso extends Component{
     }
 
     sendRegister = async () => {
-        const BASE_URL = "http://192.168.100.5:3000/user/addAcesso";
+        const BASE_URL = "https://tcc-reconhecientounip.herokuapp.com/user/addAcesso";
 
         const rawResponse = await fetch (`${BASE_URL}`, {
             method: 'POST',
@@ -62,10 +62,10 @@ export default class NovoAcesso extends Component{
         var content = await rawResponse.json();
         
         if (content.status != 200) {
-            alert("Erro ao cadastrar usuário. Tente novamente!")
+            alert("Erro ao cadastrar acesso. Tente novamente!")
         } else {
             alert(content.message)
-            this.props.navigation.navigate('NovoUsuario');
+            this.props.navigation.navigate('ConsultarAcesso');
         }
     }
 

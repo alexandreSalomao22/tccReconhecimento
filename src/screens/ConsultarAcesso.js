@@ -18,7 +18,7 @@ export default class ConsultarAcesso extends Component{
     }
 
     loadUsers = () => {
-        fetch("http://192.168.100.5:3000/user/getAcessos") 
+        fetch("https://tcc-reconhecientounip.herokuapp.com/user/getAcessos") 
             .then( res => res.json())
             .then(res => {
                 this.setState ({
