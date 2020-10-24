@@ -4,8 +4,6 @@ import { Entypo } from '@expo/vector-icons';
 
 
 export default class ConsultarAcesso extends Component{
-
-
     constructor (props) {
         super(props);
         this.state = {
@@ -18,7 +16,7 @@ export default class ConsultarAcesso extends Component{
     }
 
     loadUsers = () => {
-        fetch("https://tcc-reconhecientounip.herokuapp.com/user/getAcessos") 
+        fetch("http://ec2-52-67-210-198.sa-east-1.compute.amazonaws.com:3000/user/getAcessos") 
             .then( res => res.json())
             .then(res => {
                 this.setState ({

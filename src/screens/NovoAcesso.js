@@ -44,7 +44,7 @@ export default class NovoAcesso extends Component{
     }
 
     sendRegister = async () => {
-        const BASE_URL = "https://tcc-reconhecientounip.herokuapp.com/user/addAcesso";
+        const BASE_URL = "http://ec2-52-67-210-198.sa-east-1.compute.amazonaws.com:3000/user/addAcesso";
 
         const rawResponse = await fetch (`${BASE_URL}`, {
             method: 'POST',

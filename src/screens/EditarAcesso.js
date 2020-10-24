@@ -49,7 +49,7 @@ export default class EditarAcesso extends Component {
     }
 
     getDados = async () => {
-        const BASE_URL = "https://tcc-reconhecientounip.herokuapp.com/user/editAcesso/"+this.state.id;
+        const BASE_URL = "http://ec2-52-67-210-198.sa-east-1.compute.amazonaws.com:3000/user/editAcesso/"+this.state.id;
 
         const rawResponse = await fetch (`${BASE_URL}`, {
             method: 'GET',
@@ -84,7 +84,7 @@ export default class EditarAcesso extends Component {
     }
 
     sendRegister = async () => {
-        const BASE_URL = "http://192.168.100.5:3000/user/editAcesso/"+this.state.id;
+        const BASE_URL = "http://ec2-52-67-210-198.sa-east-1.compute.amazonaws.com:3000/user/editAcesso/"+this.state.id;
 
         const rawResponse = await fetch (`${BASE_URL}`, {
             method: 'PUT',
@@ -134,7 +134,7 @@ export default class EditarAcesso extends Component {
     }
 
     changeSituation = async () => {
-        const BASE_URL = "http://192.168.100.5:3000/user/deleteAcesso/"+this.state.id;
+        const BASE_URL = "http://ec2-52-67-210-198.sa-east-1.compute.amazonaws.com:3000/user/deleteAcesso/"+this.state.id;
 
         const rawResponse = await fetch (`${BASE_URL}`, {
             method: 'PUT',
