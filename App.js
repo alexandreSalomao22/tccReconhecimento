@@ -22,7 +22,7 @@ import GetCamera from './src/screens/GetCamera'
 function Item({ item, navigate }) {
   return (
     <TouchableOpacity style={styles.listItem} onPress={()=>navigate(item.name)}>
-      <MaterialCommunityIcons name={item.icon} size={32} />
+      <MaterialCommunityIcons name={item.icon} style={{color: 'white'}} size={32} />
       <Text style={styles.title}>{item.text}</Text>
     </TouchableOpacity>
   );
@@ -73,7 +73,7 @@ class Sidebar extends React.Component {
       return (
           <View style={styles.container}>
               <Image source={require("./assets/unipSuperior.png")} />
-              <Text style={{fontWeight:"bold",fontSize:16,marginTop:10}}>Reconhecimento Facial</Text>
+              <Text style={{color: 'white',fontWeight:"bold",fontSize:16,marginTop:10}}>Reconhecimento Facial</Text>
               <Text style={{color:"gray",marginBottom:10}}>Ambiente de teste</Text>
               <View style={styles.sidebarDivider}></View>
               <FlatList
@@ -136,7 +136,7 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#fff",
+    backgroundColor: "#1E2D3E",
     paddingTop:40,
     alignItems:"center",
     flex:1
@@ -149,7 +149,8 @@ const styles = StyleSheet.create({
   },
   title:{
       fontSize:18,
-      marginLeft:20
+      marginLeft:20,
+      color: 'white'
   },
   header:{
     width:"100%",

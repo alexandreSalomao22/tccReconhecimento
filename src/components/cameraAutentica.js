@@ -84,7 +84,6 @@ export default class FaceCamera extends React.Component {
 
     onFacesDetected({faces}) {
         this.setState({ faces })
-        console.log(faces);
         if (this.state.status == 0) {
             if (faces.length == 1) {
                 this.setState({
