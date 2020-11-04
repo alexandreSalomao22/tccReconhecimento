@@ -43,8 +43,8 @@ export default class Login extends Component{
                 </View>
                 <View style={styles.infoLogin}>
                     <Image source={UnipLogo} />
-                    <Input placeholder="Digite seu usuário" onChangeText={text => this.setState({usuario: text})} />
-                    <Input placeholder="Digite sua senha" onChangeText={text => this.setState({senha: text})} secureTextEntry={true} type="password" />
+                    <Input placeholder=" Digite seu usuário" style={{fontSize: 13, fontFamily: 'Open Sans'}} onChangeText={text => this.setState({usuario: text})} secureTextEntry={false} />
+                    <Input placeholder=" Digite sua senha" style={{fontSize: 13, fontFamily: 'Open Sans'}} onChangeText={text => this.setState({senha: text})} secureTextEntry={true} type="password" />
                     <TouchableOpacity onPress={this.login} style={styles.touchableButton}> 
                         <View style={styles.button}>
                             <Text style={styles.buttonText}>Entrar</Text>

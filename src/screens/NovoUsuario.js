@@ -38,7 +38,7 @@ export default class NovoUsuario extends Component{
         var content = await rawResponse.json();
 
         if (content.status != 200) {
-            alert("Erro ao cadastrar usuário. Tente novamente!")
+            alert(content.message)
         } else {
             alert(content.message)
             this.props.navigation.navigate('NovoUsuario');
@@ -90,12 +90,6 @@ export default class NovoUsuario extends Component{
                             <Text style={styles.buttonText}>Salvar</Text>
                         </View>
                     </TouchableOpacity>
-
-                    <TouchableOpacity  style={styles.touchableButton}> 
-                        <View style={styles.buttonInferior}>
-                            <Text style={styles.buttonText}>Cancelar</Text>
-                        </View>
-                    </TouchableOpacity>
                 </View>
             </View>
         )
@@ -120,13 +114,13 @@ const styles = StyleSheet.create({
         elevation: 5,
     },
     logoSuperior:{
-        marginLeft: 250,
+        marginLeft: 235,
         marginTop: -40
     },
     textoLogo:{
         marginTop: 30,
-        marginLeft: 10,
-        fontSize: 30
+        marginLeft: 8,
+        fontSize: 28
     },
     main:{
         width: '100%',
@@ -182,7 +176,6 @@ const styles = StyleSheet.create({
     },
 
     buttonInferior:{
-        width: '45%',
         height: 55,
         borderRadius: 10,
         backgroundColor: commonStyles.colors.secondary,
@@ -195,7 +188,6 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.22,
         shadowRadius: 2.22,
-
         elevation: 5,
     }
 })

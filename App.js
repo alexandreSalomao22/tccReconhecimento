@@ -32,57 +32,57 @@ class Sidebar extends React.Component {
   state = {
       routes:[
         {
-              name:"Home",
-              icon:"home",
-              text:"Home"
-          },
-          {
-              name:"Autenticar",
-              icon:"face-recognition",
-              text:"Autenticar"
-          },
-          {
-             name:"NovoAcesso",
-              icon:"format-horizontal-align-center",
-              text:"Cadastrar Novo Acesso"
-         },
-         {
-              name:"ConsultarAcesso",
-             icon:"cloud-search",
-             text:"Consultar Acesso"
-          },
-         {
-             name:"NovoUsuario",
-              icon:"account-plus",
-              text:"Cadastrar Novo Usuário"
-          },
-         {
-             name:"ConsultarUsuario",
-              icon:"account-search",
-              text:"Consultar Usuário"
-          },
-          {
-              name:"Sair",
-              icon:"exit-to-app",
-              text:"Sair"
-          },
+          name:"Home",
+          icon:"home",
+          text:"Home"
+        },
+        {
+          name:"Autenticar",
+          icon:"face-recognition",
+          text:"Autenticar"
+        },
+        {
+          name:"NovoAcesso",
+          icon:"format-horizontal-align-center",
+          text:"Cadastrar Novo Acesso"
+        },
+        {
+          name:"ConsultarAcesso",
+          icon:"cloud-search",
+          text:"Consultar Acesso"
+        },
+        {
+          name:"NovoUsuario",
+          icon:"account-plus",
+          text:"Cadastrar Novo Usuário"
+        },
+        {
+          name:"ConsultarUsuario",
+          icon:"account-search",
+          text:"Consultar Usuário"
+        },
+        {
+          name:"Sair",
+          icon:"exit-to-app",
+          text:"Sair"
+        },
       ]
   }
   
   render(){
       return (
-          <View style={styles.container}>
-              <Image source={require("./assets/unipSuperior.png")} />
-              <Text style={{color: 'white',fontWeight:"bold",fontSize:16,marginTop:10}}>Reconhecimento Facial</Text>
-              <Text style={{color:"gray",marginBottom:10}}>Ambiente de teste</Text>
-              <View style={styles.sidebarDivider}></View>
-              <FlatList
-                  style={{width:"100%",marginLeft:30}}
-                  data={this.state.routes}
-                  renderItem={({ item }) => <Item  item={item} navigate={this.props.navigation.navigate}/>}
-                  keyExtractor={item => item.name}
-              />
-          </View>
+        <View style={styles.container}>
+            <Image source={require("./assets/unipSuperior.png")} />
+            <Text style={{color: 'white',fontWeight:"bold",fontSize:16,marginTop:10}}>Reconhecimento Facial</Text>
+            <Text style={{color:"gray",marginBottom:10}}>Ambiente de teste</Text>
+            <View style={styles.sidebarDivider}></View>
+            <FlatList
+                style={{width:"100%",marginLeft:30}}
+                data={this.state.routes}
+                renderItem={({ item }) => <Item  item={item} navigate={this.props.navigation.navigate}/>}
+                keyExtractor={item => item.name}
+            />
+        </View>
       )
   }
 }
@@ -122,16 +122,12 @@ const AppNavigator = createStackNavigator(
 
 const AppContainer = createAppContainer(AppNavigator);
 
-
-
 export default class App extends React.Component {
   render(){
-
     return (
       <AppContainer />
     );
   }
-
 }
 
 const styles = StyleSheet.create({

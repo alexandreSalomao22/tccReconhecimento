@@ -58,6 +58,7 @@ export default class FaceCamera extends React.Component {
         var content = await rawResponse.json();
 
         if (content.status == 400 || content.status == 404) {
+            counter = 3;
             errors++;
         }
         

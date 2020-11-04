@@ -35,35 +35,32 @@ export default class ConsultarUsuario extends Component{
                 <Text style={styles.titleTxt}>Lista de Usuários</Text>
                 <View style={styles.container}>
                     <FlatList
-                            style={styles.flatList}
-                            data={this.state.data}
-                            renderItem={({item}) => (
-                                <View style={styles.line}>
-                                    <TouchableOpacity onPress={()=> this.goToListUsuario(item.id_usuario)}>
-                                        <Entypo name="edit" size={24} color="black" style={styles.icone} />
-                                    </TouchableOpacity>
-                                                <View style ={styles.info}>
-                                                    <Text style={styles.codigo}>{item.ra}</Text>
-                                                    <Text style={styles.name}>{item.nome}</Text>
-                                                </View>
+                        style={styles.flatList}
+                        data={this.state.data}
+                        renderItem={({item}) => (
+                            <View style={styles.line}>
+                                <TouchableOpacity style={styles.iconebtn} onPress={()=> this.goToListUsuario(item.id_usuario)}>
+                                    <Entypo name="edit" size={24} color="black" style={styles.icone} />
+                                </TouchableOpacity>
+                                <View style ={styles.info}>
+                                    <Text style={styles.codigo}>{item.funcional}</Text>
+                                    <Text style={styles.name}>{item.nome}</Text>
                                 </View>
-                            )}
-                            keyExtractor={ item => item.ra}
+                            </View>
+                        )}
+                        keyExtractor={ item => item.ra}
                     />
                 </View>
             </View>
         )
     }
-
 }
 
 const styles = StyleSheet.create({
-
     titleTxt:{
         fontSize: 20,
         marginTop: 30
     },
-
     mainView:{
         width: '100%',
         justifyContent: 'center',
@@ -95,7 +92,7 @@ const styles = StyleSheet.create({
         width: 40,
         height: 40,
         borderRadius: 50,
-        marginRight: 10,
+        marginRight: 15,
         alignSelf: "center"
     },
     info: {

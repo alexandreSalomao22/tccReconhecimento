@@ -62,7 +62,7 @@ export default class NovoAcesso extends Component{
         var content = await rawResponse.json();
         
         if (content.status != 200) {
-            alert("Erro ao cadastrar acesso. Tente novamente!")
+            alert(content.message)
         } else {
             alert(content.message)
             this.props.navigation.navigate('ConsultarAcesso');
