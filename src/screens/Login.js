@@ -22,11 +22,10 @@ export default class Login extends Component{
             })
         });
         var content = await rawResponse.json();
-        console.log(content)
         if (content.status != 200) {
             alert(content.message)
         } else {
-            this.props.navigation.navigate('Home');
+            this.props.navigation.navigate('Drawer');
         }
     }
 

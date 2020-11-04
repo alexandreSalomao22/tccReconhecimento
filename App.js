@@ -90,19 +90,17 @@ class Sidebar extends React.Component {
 const Drawer = createDrawerNavigator(
   {
     GetCamera: {screen: GetCamera},
-    Login:{ screen: Login},
     Home:{ screen: Home},
     Autenticar:{ screen: Autenticar},
     NovoAcesso:{ screen: NovoAcesso},
     ConsultarAcesso:{ screen: ConsultarAcesso},
     NovoUsuario:{ screen: NovoUsuario},
     ConsultarUsuario:{ screen: ConsultarUsuario},
-    Sair:{ screen: Sair},
     EditarAcesso: {screen: EditarAcesso},
     EditarUsuario: {screen: EditarUsuario}
   },
   {
-    initialRouteName: "Login",
+    initialRouteName: "Home",
     unmountInactiveRoutes: true,
     headerMode: "none",
     contentComponent: props => <Sidebar {...props} />
@@ -112,9 +110,11 @@ const Drawer = createDrawerNavigator(
 const AppNavigator = createStackNavigator(
   {
     Drawer : {screen: Drawer},
+    Login: {screen: Login},
+    Sair: {screen: Login}
   },
   {
-    initialRouteName: "Drawer",
+    initialRouteName: "Login",
     headerMode: "none",
     unmountInactiveRoutes: true
   }
@@ -169,5 +169,3 @@ const styles = StyleSheet.create({
     marginVertical:10
   }
 });
-
-
