@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "reconhecimento_facial",
-    "slug": "reconhecimento_facial",
+    "name": "tcc_reconhecimento_facial",
+    "slug": "tcc_reconhecimento_facial",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,6 +21,10 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "description": "",
+    "android": {
+      "package": "com.szteteusz.tcc_reconhecimento_facial"
     }
   }
 }
