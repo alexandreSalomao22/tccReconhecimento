@@ -8,7 +8,7 @@ import unipSuperior from '../../assets/unipSuperior.png'
 export default class Login extends Component{
 
     login = async () => {
-        const BASE_URL = "http://ec2-52-67-210-198.sa-east-1.compute.amazonaws.com:3000/auth";
+        const BASE_URL = "http://ec2-52-67-64-140.sa-east-1.compute.amazonaws.com:3000/auth";
 
         const rawResponse = await fetch (`${BASE_URL}`, {
             method: 'POST',

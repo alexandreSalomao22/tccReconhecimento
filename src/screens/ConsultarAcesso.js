@@ -16,7 +16,7 @@ export default class ConsultarAcesso extends Component{
     }
 
     loadUsers = () => {
-        fetch("http://ec2-52-67-210-198.sa-east-1.compute.amazonaws.com:3000/user/getAcessos") 
+        fetch("http://ec2-52-67-64-140.sa-east-1.compute.amazonaws.com:3000/user/getAcessos") 
             .then( res => res.json())
             .then(res => {
                 this.setState ({
